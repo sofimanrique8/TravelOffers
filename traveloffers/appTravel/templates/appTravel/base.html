@@ -1,30 +1,50 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-{% load static %}
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
     <title>{% block titulo %}Travel Offers{% endblock %}</title>
+
+    <!-- 🎨 Estilos de la plantilla descargada -->
+    <link rel="stylesheet" href="{% static 'css/slides.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra.css' %}">  <!-- si tu plantilla tiene más CSS -->
+
+    <!-- 🎨 Tu propio estilo -->
     <link rel="stylesheet" href="{% static 'appTravel/css/estilos.css' %}">
+
+    <!-- 💡 Fuentes (opcional, según la plantilla) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Material+Icons">
 </head>
-<body>
-    <header>
-        <h1><a href="/">🌍 Travel Offers</a></h1>
-        <nav>
-            <a href="/paises/">Países</a> |
-            <a href="/categorias/">Categorías</a> |
-            <a href="/ofertas/">Ofertas</a>
-        </nav>
-        <hr>
+
+<body class="slides horizontal simplifiedMobile animated">
+
+    <!-- Encabezado de tu proyecto -->
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="/">🌍 Travel Offers</a></h1>
+            <nav>
+                <a href="/paises/">Países</a> |
+                <a href="/categorias/">Categorías</a> |
+                <a href="/ofertas/">Ofertas</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        {% block contenido %}{% endblock %}
+    <!-- Contenido dinámico de cada página -->
+    <main class="site-main">
+        {% block contenido %}
+        {% endblock %}
     </main>
 
-    <footer>
-        <hr>
+    <!-- Pie de página -->
+    <footer class="site-footer">
         <p>&copy; 2025 Travel Offers</p>
     </footer>
+
+    <!-- ⚙️ Scripts de la plantilla -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/slides.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script> <!-- si tu plantilla tiene main.js -->
 </body>
 </html>

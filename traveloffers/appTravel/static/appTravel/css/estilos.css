@@ -1,0 +1,178 @@
+/* ==========================================================
+   Travel Offers - Hoja de estilos principal
+   Buenas prácticas: modular, semántico y reutilizable
+   ========================================================== */
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* TIPOGRAFÍA Y COLORES PRINCIPALES */
+:root {
+    --color-primario: #0077b6;
+    --color-secundario: #00b4d8;
+    --color-acento: #ffd60a;
+    --color-texto: #333;
+    --color-fondo: #f9f9f9;
+    --color-header: #023e8a;
+    --color-footer: #03045e;
+    --max-ancho: 1100px;
+    --transicion: 0.3s ease;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* ===========================
+   CABECERA Y NAVEGACIÓN
+   =========================== */
+header {
+    background: var(--color-header);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav {
+    margin-top: 0.5rem;
+}
+
+nav a {
+    color: var(--color-acento);
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+nav a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ===========================
+   CONTENIDO PRINCIPAL
+   =========================== */
+main {
+    max-width: var(--max-ancho);
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Tarjetas reutilizables */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform var(--transicion);
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3 {
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    margin-bottom: 0.8rem;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-primario);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+.btn:hover {
+    background: var(--color-secundario);
+}
+
+/* Listas de enlaces */
+ul.lista {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+ul.lista li {
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+ul.lista li a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+ul.lista li a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   PIE DE PÁGINA
+   =========================== */
+footer {
+    background: var(--color-footer);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .card img {
+        height: 180px;
+    }
+}

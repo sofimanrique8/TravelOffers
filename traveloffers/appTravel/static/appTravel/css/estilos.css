@@ -12,9 +12,9 @@
 
 /* TIPOGRAFÍA Y COLORES PRINCIPALES */
 :root {
-    --color-primario: #0077b6;
+    --color-primario: #0077b6; 
     --color-secundario: #00b4d8;
-    --color-acento: #ffd60a;
+    --color-acento: #9e860e;
     --color-texto: #333;
     --color-fondo: #f9f9f9;
     --color-header: #023e8a;

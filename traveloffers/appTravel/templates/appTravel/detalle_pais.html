@@ -1,0 +1,14 @@
+{% extends 'appTravel/base.html' %}
+{% block titulo %}{{ pais.nombre }}{% endblock %}
+{% block contenido %}
+<h2>{{ pais.nombre }}</h2>
+<p>{{ pais.descripcion }}</p>
+<h3>Ofertas en este país:</h3>
+<ul>
+{% for o in ofertas %}
+    <li><a href="/ofertas/{{ o.id }}/">{{ o.titulo }}</a> - {{ o.precio }} €</li>
+{% empty %}
+    <li>No hay ofertas para este país.</li>
+{% endfor %}
+</ul>
+{% endblock %}

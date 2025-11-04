@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}Travel Offers{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <header>
+        <h1><a href="/">🌍 Travel Offers</a></h1>
+        <nav>
+            <a href="/paises/">Países</a> |
+            <a href="/categorias/">Categorías</a> |
+            <a href="/ofertas/">Ofertas</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2025 Travel Offers</p>
+    </footer>
+</body>
+</html>

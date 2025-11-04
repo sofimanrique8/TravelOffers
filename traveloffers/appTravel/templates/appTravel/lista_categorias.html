@@ -1,0 +1,12 @@
+{% extends 'appTravel/base.html' %}
+{% block titulo %}Categorías{% endblock %}
+{% block contenido %}
+<h2>Categorías</h2>
+<ul>
+{% for c in categorias %}
+    <li><a href="/categorias/{{ c.id }}/">{{ c.nombre }}</a></li>
+{% empty %}
+    <li>No hay categorías disponibles.</li>
+{% endfor %}
+</ul>
+{% endblock %}

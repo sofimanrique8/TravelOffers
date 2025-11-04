@@ -1,0 +1,15 @@
+{% extends 'appTravel/base.html' %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+<h2>Ofertas destacadas por país</h2>
+{% if ofertas_por_pais %}
+    {% for pais, oferta in ofertas_por_pais.items %}
+        <div>
+            <h3>{{ pais.nombre }}</h3>
+            <p><a href="/ofertas/{{ oferta.id }}/">{{ oferta.titulo }}</a> — {{ oferta.precio }} €</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No hay ofertas disponibles.</p>
+{% endif %}
+{% endblock %}

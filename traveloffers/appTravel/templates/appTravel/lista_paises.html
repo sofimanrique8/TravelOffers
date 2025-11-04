@@ -1,0 +1,12 @@
+{% extends 'appTravel/base.html' %}
+{% block titulo %}Países{% endblock %}
+{% block contenido %}
+<h2>Países disponibles</h2>
+<ul>
+{% for p in paises %}
+    <li><a href="/paises/{{ p.id }}/">{{ p.nombre }}</a></li>
+{% empty %}
+    <li>No hay países disponibles.</li>
+{% endfor %}
+</ul>
+{% endblock %}

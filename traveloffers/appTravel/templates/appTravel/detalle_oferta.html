@@ -1,0 +1,17 @@
+{% extends 'appTravel/base.html' %}
+{% block titulo %}{{ oferta.titulo }}{% endblock %}
+{% block contenido %}
+<h2>{{ oferta.titulo }}</h2>
+<p>{{ oferta.descripcion }}</p>
+<p><strong>Precio:</strong> {{ oferta.precio }} €</p>
+<p><strong>Destino:</strong> <a href="/paises/{{ oferta.pais.id }}/">{{ oferta.pais.nombre }}</a></p>
+<h3>Categorías:</h3>
+<ul>
+    {% for c in oferta.categorias.all %}
+        <li><a href="/categorias/{{ c.id }}/">{{ c.nombre }}</a></li>
+    {% endfor %}
+</ul>
+{% if oferta.imagen %}
+    <img src="{{ oferta.imagen }}" alt="{{ oferta.titulo }}" width="300">
+{% endif %}
+{% endblock %}

@@ -1,17 +1,78 @@
 {% extends 'appTravel/base.html' %}
-{% block titulo %}{{ oferta.titulo }}{% endblock %}
+{% load static %}
+
+{% block titulo %}{{ oferta.titulo }} - Travel Offers{% endblock %}
+
 {% block contenido %}
-<h2>{{ oferta.titulo }}</h2>
-<p>{{ oferta.descripcion }}</p>
-<p><strong>Precio:</strong> {{ oferta.precio }} €</p>
-<p><strong>Destino:</strong> <a href="/paises/{{ oferta.pais.id }}/">{{ oferta.pais.nombre }}</a></p>
-<h3>Categorías:</h3>
-<ul>
-    {% for c in oferta.categorias.all %}
-        <li><a href="/categorias/{{ c.id }}/">{{ c.nombre }}</a></li>
-    {% endfor %}
-</ul>
-{% if oferta.imagen %}
-    <img src="{{ oferta.imagen }}" alt="{{ oferta.titulo }}" width="300">
-{% endif %}
+<!-- Page Header -->
+<section style="padding-top: 7rem;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                {% if oferta.imagen %}
+                <img class="w-100 rounded-3 shadow" src="{{ oferta.imagen.url }}" alt="{{ oferta.titulo }}" style="max-height: 500px; object-fit: cover;" />
+                {% else %}
+                <img class="w-100 rounded-3 shadow" src="{% static 'appTravel/img/steps/booking-img.jpg' %}" alt="{{ oferta.titulo }}" style="max-height: 500px; object-fit: cover;" />
+                {% endif %}
+            </div>
+            <div class="col-lg-6">
+                <div class="ps-lg-4">
+                    <h5 class="text-secondary">Oferta Especial</h5>
+                    <h1 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize mb-4">{{ oferta.titulo }}</h1>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{% static 'appTravel/img/dest/navigation.svg' %}" style="margin-right: 14px" width="25" alt="País" />
+                        <div>
+                            <small class="text-secondary d-block">Destino</small>
+                            <a class="link-900 fw-bold fs-1 text-decoration-none" href="/paises/{{ oferta.pais.id }}/">{{ oferta.pais.nombre }}</a>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{% static 'appTravel/img/steps/selection.svg' %}" style="margin-right: 14px" width="25" alt="Duración" />
+                        <div>
+                            <small class="text-secondary d-block">Duración</small>
+                            <span class="fw-bold fs-1">{{ oferta.duracion_dias }} Días</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h2 class="text-danger fw-bold">{{ oferta.precio }}€</h2>
+                        <small class="text-secondary">Precio por persona</small>
+                    </div>
+
+                    {% if oferta.descripcion %}
+                    <div class="mb-4">
+                        <h5 class="fw-bold mb-3">Descripción</h5>
+                        <p class="fw-medium">{{ oferta.descripcion }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if oferta.categorias.all %}
+                    <div class="mb-4">
+                        <h5 class="fw-bold mb-3">Categorías</h5>
+                        <div class="icon-group">
+                            {% for c in oferta.categorias.all %}
+                            <a class="btn btn-outline-primary btn-sm me-2 mb-2" href="/categorias/{{ c.id }}/">{{ c.nombre }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <a class="btn btn-danger btn-lg orange-gradient-btn" href="#!" role="button">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Offers Section -->
+<section class="pt-8 pb-8">
+    <div class="container">
+        <div class="mb-7 text-center">
+            <h5 class="text-secondary">Más Opciones</h5>
+            <h3 class="fs-xl-8 fs-lg-6 fs-5 fw-bold font-cursive text-capitalize">Otras Ofertas que te Pueden Interesar</h3>
+        </div>
+    </div>
+</section>
 {% endblock %}

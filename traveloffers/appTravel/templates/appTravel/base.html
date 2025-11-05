@@ -1,31 +1,115 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
-{% load static %}
+<html lang="es" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Document Title -->
     <title>{% block titulo %}Travel Offers{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'appTravel/css/slides.css' %}">
 
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'appTravel/img/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'appTravel/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'appTravel/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'appTravel/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'appTravel/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'appTravel/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Stylesheets -->
+    <link href="{% static 'appTravel/css/theme.css' %}" rel="stylesheet" />
 </head>
-<body>
-    <header>
-        <h1><a href="/">Travel Offers</a></h1>
-        <nav>
-            <a href="/paises/">Países</a> |
-            <a href="/categorias/">Categorías</a> |
-            <a href="/ofertas/">Ofertas</a>
-        </nav>
-        <hr>
-    </header>
 
-    <main>
+<body>
+    <!-- Main Content -->
+    <main class="main" id="top">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <h3 class="fw-bold text-danger mb-0">Travel Offers</h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
+                        <li class="nav-item px-3 px-xl-4">
+                            <a class="nav-link fw-medium" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item px-3 px-xl-4">
+                            <a class="nav-link fw-medium" href="/paises/">Países</a>
+                        </li>
+                        <li class="nav-item px-3 px-xl-4">
+                            <a class="nav-link fw-medium" href="/categorias/">Categorías</a>
+                        </li>
+                        <li class="nav-item px-3 px-xl-4">
+                            <a class="nav-link fw-medium" href="/ofertas/">Ofertas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         {% block contenido %}{% endblock %}
+
+        <!-- Footer -->
+        <section class="pb-0 pb-lg-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-7 col-12 mb-4 mb-md-6 mb-lg-0 order-0">
+                        <h3 class="fw-bold text-danger mb-4">Travel Offers</h3>
+                        <p class="fs--1 text-secondary mb-0 fw-medium">Book your trip in minute, get full Control for much longer.</p>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4 mb-lg-0 order-lg-1 order-md-2">
+                        <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4">Explorar</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="/paises/">Países</a></li>
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="/categorias/">Categorías</a></li>
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="/ofertas/">Ofertas</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4 mb-lg-0 order-lg-2 order-md-3">
+                        <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4">Contacto</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="#!">Ayuda/FAQ</a></li>
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="#!">Prensa</a></li>
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="#!">Afiliados</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4 mb-lg-0 order-lg-3 order-md-4">
+                        <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4">Más</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="#!">Tarifas aéreas</a></li>
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="#!">Aerolíneas</a></li>
+                            <li class="mb-2"><a class="link-900 fs-1 fw-medium text-decoration-none" href="#!">Consejos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-12 mb-4 mb-md-6 mb-lg-0 order-lg-4 order-md-1">
+                        <div class="icon-group mb-4">
+                            <a class="text-decoration-none icon-item shadow-social" id="facebook" href="#!"><i class="fab fa-facebook-f"></i></a>
+                            <a class="text-decoration-none icon-item shadow-social" id="instagram" href="#!"><i class="fab fa-instagram"></i></a>
+                            <a class="text-decoration-none icon-item shadow-social" id="twitter" href="#!"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="py-5 text-center">
+            <p class="mb-0 text-secondary fs--1 fw-medium">All rights reserved @ Travel Offers 2025</p>
+        </div>
     </main>
 
-    <footer>
-        <hr>
-        <p>&copy; 2025 Travel Offers</p>
-    </footer>
+    <!-- JavaScripts -->
+    <script src="{% static 'appTravel/js/bootstrap-navbar.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="{% static 'appTravel/js/theme.js' %}"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Volkhov:wght@700&display=swap" rel="stylesheet">
 </body>
+
 </html>

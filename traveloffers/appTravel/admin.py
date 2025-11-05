@@ -5,3 +5,7 @@ admin.site.register(Pais)
 admin.site.register(Categoria)
 admin.site.register(Oferta)
 
+from django.contrib import admin
+from .models import Imagen
+
+admin.site.register(Imagen)

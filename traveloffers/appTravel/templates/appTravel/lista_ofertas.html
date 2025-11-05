@@ -1,12 +1,64 @@
 {% extends 'appTravel/base.html' %}
-{% block titulo %}Ofertas{% endblock %}
+{% load static %}
+
+{% block titulo %}Ofertas - Travel Offers{% endblock %}
+
 {% block contenido %}
-<h2>Lista de ofertas</h2>
-<ul>
-{% for o in ofertas %}
-    <li><a href="/ofertas/{{ o.id }}/">{{ o.titulo }}</a> ({{ o.pais.nombre }}) - {{ o.precio }} €</li>
-{% empty %}
-    <li>No hay ofertas disponibles.</li>
-{% endfor %}
-</ul>
+<!-- Page Header -->
+<section style="padding-top: 7rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center py-6">
+                <h5 class="text-secondary">Las Mejores</h5>
+                <h1 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Todas las Ofertas</h1>
+                <p class="mb-4 fw-medium">Encuentra la oferta perfecta para tu próximo viaje</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Offers Section -->
+<section class="pt-5 pb-8" id="ofertas">
+    <div class="container">
+        <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4">
+            <img src="{% static 'appTravel/img/dest/shape.svg' %}" alt="destination" />
+        </div>
+        <div class="row">
+            {% for o in ofertas %}
+            <div class="col-md-4 mb-4">
+                <div class="card overflow-hidden shadow h-100">
+                    {% if o.imagen %}
+                    <img class="card-img-top" src="{{ o.imagen.url }}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
+                    {% else %}
+                    <img class="card-img-top" src="{% static 'appTravel/img/dest/dest1.jpg' %}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
+                    {% endif %}
+                    <div class="card-body py-4 px-3">
+                        <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                            <h4 class="text-secondary fw-medium">
+                                <a class="link-900 text-decoration-none stretched-link" href="/ofertas/{{ o.id }}/">{{ o.titulo }}</a>
+                            </h4>
+                            <span class="fs-1 fw-medium text-nowrap">{{ o.precio }}€</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <img src="{% static 'appTravel/img/dest/navigation.svg' %}" style="margin-right: 14px" width="20" alt="País" />
+                            <span class="fs-0 fw-medium">{{ o.pais.nombre }}</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="{% static 'appTravel/img/steps/selection.svg' %}" style="margin-right: 14px" width="20" alt="Duración" />
+                            <span class="fs-0 fw-medium">{{ o.duracion_dias }} Días</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <div class="card shadow-sm p-5">
+                    <h4 class="text-secondary">No hay ofertas disponibles en este momento.</h4>
+                    <p class="mb-0">Vuelve pronto para descubrir nuevas ofertas increíbles.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

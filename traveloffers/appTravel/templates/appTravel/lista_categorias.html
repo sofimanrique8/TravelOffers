@@ -1,12 +1,57 @@
 {% extends 'appTravel/base.html' %}
-{% block titulo %}Categorías{% endblock %}
+{% load static %}
+
+{% block titulo %}Categorías - Travel Offers{% endblock %}
+
 {% block contenido %}
-<h2>Categorías</h2>
-<ul>
-{% for c in categorias %}
-    <li><a href="/categorias/{{ c.id }}/">{{ c.nombre }}</a></li>
-{% empty %}
-    <li>No hay categorías disponibles.</li>
-{% endfor %}
-</ul>
+<!-- Page Header -->
+<section style="padding-top: 7rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center py-6">
+                <h5 class="text-secondary">Explora</h5>
+                <h1 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Categorías de Viaje</h1>
+                <p class="mb-4 fw-medium">Encuentra el tipo de experiencia que buscas</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="pt-5 pb-8" id="categorias">
+    <div class="container">
+        <div class="position-absolute z-index--1 end-0 d-none d-lg-block">
+            <img src="{% static 'appTravel/img/category/shape.svg' %}" style="max-width: 200px" alt="service" />
+        </div>
+        <div class="row">
+            {% for c in categorias %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-6">
+                <div class="card service-card shadow-hover rounded-3 text-center align-items-center h-100">
+                    <div class="card-body p-xxl-5 p-4">
+                        {% if forloop.counter0 == 0 %}
+                        <img src="{% static 'appTravel/img/category/icon1.png' %}" width="75" alt="Categoría" />
+                        {% elif forloop.counter0 == 1 %}
+                        <img src="{% static 'appTravel/img/category/icon2.png' %}" width="75" alt="Categoría" />
+                        {% elif forloop.counter0 == 2 %}
+                        <img src="{% static 'appTravel/img/category/icon3.png' %}" width="75" alt="Categoría" />
+                        {% else %}
+                        <img src="{% static 'appTravel/img/category/icon4.png' %}" width="75" alt="Categoría" />
+                        {% endif %}
+                        <h4 class="mb-3">
+                            <a class="link-900 text-decoration-none stretched-link" href="/categorias/{{ c.id }}/">{{ c.nombre }}</a>
+                        </h4>
+                        <p class="mb-0 fw-medium">Descubre ofertas en esta categoría</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <div class="card shadow-sm p-5">
+                    <h4 class="text-secondary">No hay categorías disponibles en este momento.</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

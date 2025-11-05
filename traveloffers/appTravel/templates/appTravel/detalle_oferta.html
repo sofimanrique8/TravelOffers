@@ -14,6 +14,21 @@
                 {% else %}
                 <img class="w-100 rounded-3 shadow" src="{% static 'appTravel/img/steps/booking-img.jpg' %}" alt="{{ oferta.titulo }}" style="max-height: 500px; object-fit: cover;" />
                 {% endif %}
+                {% if imagenes %}
+                <div class="mt-4">
+                    <h5 class="fw-bold mb-3">Galería</h5>
+                    <div class="row g-3">
+                    {% for img in imagenes %}
+                        <div class="col-6 col-md-4 col-lg-3">
+                        <img src="{{ img.imagen.url }}"
+                            alt="{{ img.nombre|default:oferta.titulo }}"
+                            class="w-100 rounded-3 shadow-sm"
+                            style="height:150px; object-fit:cover;">
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <div class="col-lg-6">
                 <div class="ps-lg-4">

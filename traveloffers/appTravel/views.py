@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Oferta, Pais, Categoria
+from .models import Oferta, Pais, Categoria, Imagen
 
 # Portada
 def index(request):
@@ -29,7 +29,11 @@ def lista_categorias(request):
 # Detalles
 def detalle_oferta(request, oferta_id):
     oferta = get_object_or_404(Oferta, pk=oferta_id)
-    return render(request, 'appTravel/detalle_oferta.html', {'oferta': oferta})
+    imagenes = Imagen.objects.filter(oferta=oferta).order_by('id')
+    return render(request, 'appTravel/detalle_oferta.html', {
+        'oferta': oferta,
+        'imagenes': imagenes,
+    })
 
 def detalle_pais(request, pais_id):
     pais = get_object_or_404(Pais, pk=pais_id)
@@ -40,4 +44,3 @@ def detalle_categoria(request, categoria_id):
     categoria = get_object_or_404(Categoria, pk=categoria_id)
     ofertas = categoria.oferta_set.all()
     return render(request, 'appTravel/detalle_categoria.html', {'categoria': categoria, 'ofertas': ofertas})
-

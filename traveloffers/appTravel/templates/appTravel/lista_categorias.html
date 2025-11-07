@@ -28,15 +28,14 @@
             <div class="col-lg-3 col-md-4 col-sm-6 mb-6">
                 <div class="card service-card shadow-hover rounded-3 text-center align-items-center h-100">
                     <div class="card-body p-xxl-5 p-4">
-                        {% if forloop.counter0 == 0 %}
-                        <img src="{% static 'appTravel/img/category/icon1.png' %}" width="75" alt="Categoría" />
-                        {% elif forloop.counter0 == 1 %}
-                        <img src="{% static 'appTravel/img/category/icon2.png' %}" width="75" alt="Categoría" />
-                        {% elif forloop.counter0 == 2 %}
-                        <img src="{% static 'appTravel/img/category/icon3.png' %}" width="75" alt="Categoría" />
+
+                        {# Icono de la categoría desde BD; fallback a placeholder estático #}
+                        {% if c.icono %}
+                          <img src="{{ c.icono.url }}" width="75" height="75" alt="{{ c.nombre }}" style="object-fit:cover;"/>
                         {% else %}
-                        <img src="{% static 'appTravel/img/category/icon4.png' %}" width="75" alt="Categoría" />
+                          <img src="{% static 'appTravel/img/category/icon-placeholder.png' %}" width="75" height="75" alt="{{ c.nombre }}" />
                         {% endif %}
+
                         <h4 class="mb-3">
                             <a class="link-900 text-decoration-none stretched-link" href="/categorias/{{ c.id }}/">{{ c.nombre }}</a>
                         </h4>

@@ -29,11 +29,11 @@
       {% for o in ofertas %}
         <div class="col-md-4 mb-4">
           <div class="card overflow-hidden shadow h-100">
-            {% with o.galeria.all as gal %}
-              {% if o.imagen %}
-                <img class="card-img-top" src="{{ o.imagen }}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
-              {% elif gal and gal|length > 0 %}
+            {% with gal=o.galeria.all %}
+              {% if gal and gal|length > 0 %}
                 <img class="card-img-top" src="{{ gal.0.imagen.url }}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
+              {% elif o.imagen %}
+                <img class="card-img-top" src="{{ o.imagen }}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
               {% else %}
                 <img class="card-img-top" src="{% static 'appTravel/img/dest/dest1.jpg' %}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
               {% endif %}

@@ -46,21 +46,18 @@
         {% for pais, oferta in ofertas_por_pais.items %}
           <div class="col-md-4 mb-4">
             <div class="card overflow-hidden shadow h-100">
-              {% with oferta.galeria.all as gal %}
-                {% if oferta.imagen %}
-                  <!-- URLField: sin .url -->
-                  <img class="card-img-top"
-                       src="{{ oferta.imagen }}"
-                       alt="{{ pais.nombre }}"
-                       style="height:250px;object-fit:cover;">
-                {% elif gal and gal|length > 0 %}
-                  <!-- Fallback: primera imagen de la galería -->
+              {% with gal=oferta.galeria.all %}
+                {% if gal and gal|length > 0 %}
                   <img class="card-img-top"
                        src="{{ gal.0.imagen.url }}"
                        alt="{{ pais.nombre }}"
                        style="height:250px;object-fit:cover;">
+                {% elif oferta.imagen %}
+                  <img class="card-img-top"
+                       src="{{ oferta.imagen }}"
+                       alt="{{ pais.nombre }}"
+                       style="height:250px;object-fit:cover;">
                 {% else %}
-                  <!-- Imagen por defecto -->
                   <img class="card-img-top"
                        src="{% static 'appTravel/img/dest/dest1.jpg' %}"
                        alt="{{ pais.nombre }}"

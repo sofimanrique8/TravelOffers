@@ -10,16 +10,17 @@
     <div class="row align-items-center">
       <div class="col-lg-6 mb-4 mb-lg-0">
 
-        {% with gal=imagenes %}
-          {% if oferta.imagen %}
-            <!-- oferta.imagen es URLField: sin .url -->
-            <img class="w-100 rounded-3 shadow"
-                 src="{{ oferta.imagen }}"
-                 alt="{{ oferta.titulo }}"
-                 style="max-height: 500px; object-fit: cover;" />
-          {% elif gal and gal|length > 0 %}
+        {# Prioriza la primera imagen de BD (galería). 
+           Usa 'imagenes' si la vista la envía; si no, toma oferta.galeria.all #}
+        {% with gal=imagenes|default:oferta.galeria.all %}
+          {% if gal and gal|length > 0 %}
             <img class="w-100 rounded-3 shadow"
                  src="{{ gal.0.imagen.url }}"
+                 alt="{{ oferta.titulo }}"
+                 style="max-height: 500px; object-fit: cover;" />
+          {% elif oferta.imagen %}
+            <img class="w-100 rounded-3 shadow"
+                 src="{{ oferta.imagen }}"
                  alt="{{ oferta.titulo }}"
                  style="max-height: 500px; object-fit: cover;" />
           {% else %}

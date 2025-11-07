@@ -4,7 +4,7 @@ from django.utils.html import format_html
 from .models import Pais, Categoria, Oferta, Imagen
 
 
-# ----- Inlines -----
+# ===== Inlines =====
 class ImagenInline(admin.TabularInline):
     model = Imagen
     extra = 1
@@ -24,11 +24,27 @@ class ImagenInline(admin.TabularInline):
     preview.short_description = "Vista previa"
 
 
-# ----- Admins -----
+# ===== Admins =====
 @admin.register(Pais)
 class PaisAdmin(admin.ModelAdmin):
-    list_display = ("nombre",)
+    # Ahora con icono y vista previa ✅
+    list_display = ("nombre", "preview_icono")
     search_fields = ("nombre",)
+    fields = ("nombre", "descripcion", "icono")
+    # Si quieres ver una preview en el formulario, usa readonly_fields y un método similar a icono_preview
+
+    def preview_icono(self, obj):
+        icono = getattr(obj, "icono", None)
+        if icono:
+            try:
+                return format_html(
+                    '<img src="{}" width="32" height="32" style="object-fit:contain;" />',
+                    icono.url,
+                )
+            except Exception:
+                return "—"
+        return "—"
+    preview_icono.short_description = "Icono"
 
 
 @admin.register(Categoria)
@@ -73,10 +89,9 @@ class OfertaAdmin(admin.ModelAdmin):
     list_filter = ("pais",)
     search_fields = ("titulo", "descripcion")
     inlines = [ImagenInline]
-    # Si queréis ordenar por precio por defecto:
     ordering = ("precio",)
 
-    # Opcional: vista previa rápida de la primera imagen de galería
+    # Opcional: vista previa rápida de la primera imagen de galería (añádela a list_display si la quieres ver)
     def portada(self, obj):
         first = obj.galeria.first() if hasattr(obj, "galeria") else None
         if first and getattr(first, "imagen", None):
@@ -91,7 +106,6 @@ class OfertaAdmin(admin.ModelAdmin):
     portada.short_description = "Portada"
 
 
-# ----- Registro simple de Imagen (si queréis verla fuera del inline) -----
 @admin.register(Imagen)
 class ImagenAdmin(admin.ModelAdmin):
     list_display = ("oferta", "thumb")

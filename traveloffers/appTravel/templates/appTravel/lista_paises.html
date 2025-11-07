@@ -6,43 +6,48 @@
 {% block contenido %}
 <!-- Page Header -->
 <section style="padding-top: 7rem;">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center py-6">
-                <h5 class="text-secondary">Descubre</h5>
-                <h1 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Países Disponibles</h1>
-                <p class="mb-4 fw-medium">Explora nuestros destinos y encuentra tu próxima aventura</p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center py-6">
+        <h5 class="text-secondary">Explora nuestros destinos</h5>
+        <h1 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Países Disponibles</h1>
+        <p class="mb-4 fw-medium">Explora nuestros destinos y encuentra tu próxima aventura</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Countries List Section -->
+<!-- Countries Section -->
 <section class="pt-5 pb-8" id="paises">
-    <div class="container">
-        <div class="row">
-            {% for p in paises %}
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card service-card shadow-hover rounded-3 text-center align-items-center h-100">
-                    <div class="card-body p-4">
-                        <div class="mb-3">
-                            <img src="{% static 'appTravel/img/dest/navigation.svg' %}" width="50" alt="País" />
-                        </div>
-                        <h4 class="mb-3">
-                            <a class="link-900 text-decoration-none stretched-link" href="/paises/{{ p.id }}/">{{ p.nombre }}</a>
-                        </h4>
-                        <p class="mb-0 fw-medium text-secondary">Descubre las mejores ofertas</p>
-                    </div>
-                </div>
-            </div>
-            {% empty %}
-            <div class="col-12 text-center">
-                <div class="card shadow-sm p-5">
-                    <h4 class="text-secondary">No hay países disponibles en este momento.</h4>
-                </div>
-            </div>
-            {% endfor %}
+  <div class="container">
+    <div class="row g-4">
+      {% for p in paises %}
+      <div class="col-xl-3 col-lg-4 col-sm-6">
+        <div class="card h-100 shadow-hover rounded-4 text-center px-4 py-5 position-relative">
+          <div class="mb-3">
+            {% if p.icono %}
+              <img src="{{ p.icono.url }}" alt="{{ p.nombre }}" width="75" height="75" style="object-fit:contain;">
+            {% else %}
+              <img src="{% static 'appTravel/img/dest/navigation.svg' %}" alt="{{ p.nombre }}" width="75" height="75">
+            {% endif %}
+          </div>
+          <h4 class="mb-2">
+            <a class="link-900 text-decoration-none stretched-link" href="/paises/{{ p.id }}/">{{ p.nombre }}</a>
+          </h4>
+          <p class="fw-medium mb-0">Descubre las mejores ofertas</p>
+          <div class="position-absolute end-0 bottom-0 me-3 mb-3 opacity-25 d-none d-md-block">
+            <img src="{% static 'appTravel/img/dest/shape.svg' %}" alt="" width="80">
+          </div>
         </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center">
+        <div class="card shadow-sm p-5">
+          <h4 class="text-secondary">No hay países disponibles en este momento.</h4>
+        </div>
+      </div>
+      {% endfor %}
     </div>
+  </div>
 </section>
 {% endblock %}

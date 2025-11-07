@@ -10,8 +10,6 @@
     <div class="row align-items-center">
       <div class="col-lg-6 mb-4 mb-lg-0">
 
-        {# Prioriza la primera imagen de BD (galería). 
-           Usa 'imagenes' si la vista la envía; si no, toma oferta.galeria.all #}
         {% with gal=imagenes|default:oferta.galeria.all %}
           {% if gal and gal|length > 0 %}
             <img class="w-100 rounded-3 shadow"

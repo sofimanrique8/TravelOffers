@@ -7280,8 +7280,8 @@ fieldset:disabled .btn {
   z-index: 3;
   border-color: #FFFEFE;
   outline: 0;
-  -webkit-box-shadow: #F0F4F9;
-  box-shadow: #F0F4F9;
+  -webkit-box-shadow: 0 0 0 0.25rem #F0F4F9;
+  box-shadow: 0 0 0 0.25rem #F0F4F9;
 }
 
 .accordion-header {
@@ -9872,7 +9872,7 @@ fieldset:disabled .btn {
 }
 
 .bg-body {
-  background-color: "body" !important;
+  background-color: #FFFEFE !important;
 }
 
 .bg-transparent {

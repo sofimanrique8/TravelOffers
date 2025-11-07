@@ -12,35 +12,40 @@ def index(request):
     return render(request, 'appTravel/index.html', {'ofertas_por_pais': ofertas_por_pais})
 
 
-# Listas
-def lista_ofertas(request):
-    ofertas = Oferta.objects.all()
-    return render(request, 'appTravel/lista_ofertas.html', {'ofertas': ofertas})
-
+# ==== LISTADOS ====
 def lista_paises(request):
-    paises = Pais.objects.all()
+    paises = Pais.objects.all().order_by('nombre')
     return render(request, 'appTravel/lista_paises.html', {'paises': paises})
 
 def lista_categorias(request):
-    categorias = Categoria.objects.all()
+    categorias = Categoria.objects.all().order_by('nombre')
     return render(request, 'appTravel/lista_categorias.html', {'categorias': categorias})
 
+def lista_ofertas(request):
+    ofertas = Oferta.objects.all().select_related('pais').prefetch_related('galeria')
+    return render(request, 'appTravel/lista_ofertas.html', {'ofertas': ofertas})
 
-# Detalles
+
+# ==== DETALLES ====
 def detalle_oferta(request, oferta_id):
-    oferta = get_object_or_404(Oferta, pk=oferta_id)
-    imagenes = Imagen.objects.filter(oferta=oferta).order_by('id')
-    return render(request, 'appTravel/detalle_oferta.html', {
-        'oferta': oferta,
-        'imagenes': imagenes,
-    })
+    oferta = get_object_or_404(
+        Oferta.objects.select_related('pais').prefetch_related('galeria'),
+        pk=oferta_id
+    )
+    imagenes = oferta.galeria.all()
+    return render(request, 'appTravel/detalle_oferta.html', {'oferta': oferta, 'imagenes': imagenes})
 
 def detalle_pais(request, pais_id):
     pais = get_object_or_404(Pais, pk=pais_id)
-    ofertas = Oferta.objects.filter(pais=pais)
+    ofertas = (Oferta.objects
+               .filter(pais_id=pais_id)
+               .select_related('pais')
+               .prefetch_related('galeria'))
     return render(request, 'appTravel/detalle_pais.html', {'pais': pais, 'ofertas': ofertas})
 
 def detalle_categoria(request, categoria_id):
     categoria = get_object_or_404(Categoria, pk=categoria_id)
-    ofertas = categoria.oferta_set.all()
+    ofertas = (categoria.oferta_set.all()
+               .select_related('pais')
+               .prefetch_related('galeria'))
     return render(request, 'appTravel/detalle_categoria.html', {'categoria': categoria, 'ofertas': ofertas})

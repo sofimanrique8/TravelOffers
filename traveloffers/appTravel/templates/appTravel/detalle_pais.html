@@ -4,6 +4,7 @@
 {% block titulo %}{{ pais.nombre }} - Travel Offers{% endblock %}
 
 {% block contenido %}
+<!-- Page Header -->
 <section style="padding-top: 7rem;">
   <div class="container">
     <div class="row">
@@ -21,5 +22,48 @@
   </div>
 </section>
 
-{# El resto del contenido (ofertas, etc.) no cambia #}
+<!-- Offers Section -->
+<section class="pt-5 pb-8" id="ofertas">
+  <div class="container">
+    <div class="mb-7 text-center">
+      <h3 class="fs-xl-8 fs-lg-6 fs-5 fw-bold font-cursive text-capitalize">Ofertas en {{ pais.nombre }}</h3>
+    </div>
+    <div class="row">
+      {% for o in ofertas %}
+        <div class="col-md-4 mb-4">
+          <div class="card overflow-hidden shadow h-100">
+            {% with gal=o.galeria.all %}
+              {% if gal and gal|length > 0 %}
+                <img class="card-img-top" src="{{ gal.0.imagen.url }}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
+              {% elif o.imagen %}
+                <img class="card-img-top" src="{{ o.imagen }}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
+              {% else %}
+                <img class="card-img-top" src="{% static 'appTravel/img/dest/dest1.jpg' %}" alt="{{ o.titulo }}" style="height: 250px; object-fit: cover;" />
+              {% endif %}
+            {% endwith %}
+            <div class="card-body py-4 px-3">
+              <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                <h4 class="text-secondary fw-medium">
+                  <a class="link-900 text-decoration-none stretched-link" href="{% url 'detalle_oferta' o.id %}">{{ o.titulo }}</a>
+                </h4>
+                <span class="fs-1 fw-medium text-nowrap">{{ o.precio }}€</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <img src="{% static 'appTravel/img/steps/selection.svg' %}" style="margin-right: 14px" width="20" alt="Duración" />
+                <span class="fs-0 fw-medium">{{ o.duracion_dias|default_if_none:'' }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12 text-center">
+          <div class="card shadow-sm p-5">
+            <h4 class="text-secondary">No hay ofertas para este país en este momento.</h4>
+            <p class="mb-0">Vuelve pronto para descubrir nuevas ofertas.</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}

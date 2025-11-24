@@ -1,15 +1,23 @@
 from django.urls import path
-from . import views
+from .views import (
+    IndexView,
+    OfertaListView,
+    OfertaDetailView,
+    PaisListView,
+    PaisDetailView,
+    CategoriaListView,
+    CategoriaDetailView,
+)
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', IndexView.as_view(), name='index'),
 
-    path('ofertas/', views.lista_ofertas, name='lista_ofertas'),
-    path('ofertas/<int:oferta_id>/', views.detalle_oferta, name='detalle_oferta'),
+    path('ofertas/', OfertaListView.as_view(), name='lista_ofertas'),
+    path('ofertas/<int:oferta_id>/', OfertaDetailView.as_view(), name='detalle_oferta'),
 
-    path('paises/', views.lista_paises, name='lista_paises'),
-    path('paises/<int:pais_id>/', views.detalle_pais, name='detalle_pais'),
+    path('paises/', PaisListView.as_view(), name='lista_paises'),
+    path('paises/<int:pais_id>/', PaisDetailView.as_view(), name='detalle_pais'),
 
-    path('categorias/', views.lista_categorias, name='lista_categorias'),
-    path('categorias/<int:categoria_id>/', views.detalle_categoria, name='detalle_categoria'),
+    path('categorias/', CategoriaListView.as_view(), name='lista_categorias'),
+    path('categorias/<int:categoria_id>/', CategoriaDetailView.as_view(), name='detalle_categoria'),
 ]

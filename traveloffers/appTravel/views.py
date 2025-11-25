@@ -94,3 +94,4 @@ class ReservaCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['oferta'] = get_object_or_404(Oferta, pk=self.kwargs['oferta_id'])
         return context
+    

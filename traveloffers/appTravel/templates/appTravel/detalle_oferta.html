@@ -78,6 +78,7 @@
               <p class="fw-medium">{{ oferta.descripcion }}</p>
             </div>
           {% endif %}
+          
 
           {% if oferta.categorias.all %}
             <div class="mb-4">
@@ -90,6 +91,11 @@
             </div>
           {% endif %}
 
+          <a class="btn btn-danger btn-lg orange-gradient-btn" 
+             href="{% url 'reservar_oferta' oferta_id=oferta.id %}" 
+             role="button">Reservar Ahora</a> </div>
+      </div>
+          {% endif %}
           <a class="btn btn-danger btn-lg orange-gradient-btn" href="#!" role="button">Reservar Ahora</a>
         </div>
       </div>
@@ -105,4 +111,5 @@
     </div>
   </div>
 </section>
+
 {% endblock %}

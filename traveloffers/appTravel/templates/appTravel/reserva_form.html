@@ -1,0 +1,53 @@
+{% extends 'appTravel/base.html' %}
+{% load static %}
+
+{% block titulo %}Reservar {{ oferta.titulo }} - Travel Offers{% endblock %}
+
+{% block contenido %}
+<section style="padding-top: 7rem; padding-bottom: 5rem;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h5 class="text-secondary">Paso Final</h5>
+        <h1 class="fs-xl-8 fs-lg-6 fs-5 fw-bold font-cursive text-capitalize mb-5">
+            Solicitud de Reserva para: <span class="text-danger">{{ oferta.titulo }}</span>
+        </h1>
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="card shadow-sm p-4">
+            <form method="post" action="{% url 'reservar_oferta' oferta_id=oferta.id %}">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label fw-bold">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <div class="form-text text-muted">{{ field.help_text }}</div>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger p-1 mt-1">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <p class="text-secondary mt-4">
+                    Al enviar esta solicitud, nuestro equipo se pondrá en contacto contigo en las próximas 24 horas para confirmar los detalles y finalizar la reserva.
+                </p>
+
+                <button type="submit" class="btn btn-danger btn-lg orange-gradient-btn mt-3">Enviar Solicitud de Reserva</button>
+                <a href="{% url 'detalle_oferta' oferta_id=oferta.id %}" class="btn btn-outline-secondary btn-lg mt-3 ms-2">Cancelar</a>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

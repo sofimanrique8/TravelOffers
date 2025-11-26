@@ -9,8 +9,8 @@ services:
     name: traveloffers-web
     plan: free
     runtime: python
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn traveloffers.wsgi:application"
+    buildCommand: "cd traveloffers && ./build.sh"
+    startCommand: "cd traveloffers && gunicorn traveloffers.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:

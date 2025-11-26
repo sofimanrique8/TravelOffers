@@ -22,7 +22,7 @@
         {% endif %}
 
         <div class="card shadow-sm p-4">
-            <form method="post" action="{% url 'reservar_oferta' oferta_id=oferta.id %}">
+            <form method="post" action="{% url 'crear_reserva' oferta_id=oferta.id %}">
                 {% csrf_token %}
 
                 {% for field in form %}

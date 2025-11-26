@@ -10,7 +10,7 @@ python manage.py migrate --noinput
 
 # Cargar datos iniciales
 python manage.py loaddata datos_utf8.json || true
-python manage.py loaddata user_render_ana.json || true
+python manage.py loaddata admin_render.json || true
 
 # Collect static files
 python manage.py collectstatic --no-input

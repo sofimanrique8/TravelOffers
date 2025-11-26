@@ -1,4 +1,4 @@
-from django.db import models # type: ignore
+from django.db import models 
 
 class Pais(models.Model):
     nombre = models.CharField(max_length=100)
@@ -6,7 +6,7 @@ class Pais(models.Model):
     icono = models.ImageField(upload_to='iconos_paises/', blank=True, null=True)
     class Meta:
         verbose_name_plural = "Países"
-    def __str__(self): return self.nombre
+    def __str__(self): return self.nombre  
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
@@ -40,8 +40,8 @@ class Imagen(models.Model):
         verbose_name_plural = "Imagenes"
     def __str__(self): return self.titulo or f"Imagen {self.pk}"
 
-class ReservaInquiry(models.Model): # <--- NO DEBE ESTAR INDENTADA
-    # Esta línea DEBE estar INDENTADA con 4 espacios
+class ReservaInquiry(models.Model): 
+    
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE, related_name='inquiries', verbose_name="Oferta") 
     nombre_completo = models.CharField(max_length=150)
     email = models.EmailField()
@@ -51,9 +51,9 @@ class ReservaInquiry(models.Model): # <--- NO DEBE ESTAR INDENTADA
     comentarios = models.TextField(blank=True, null=True)
     fecha_solicitud = models.DateTimeField(auto_now_add=True)
 
-    class Meta: # <--- También INDENTADA
+    class Meta: 
         verbose_name = "Solicitud de Reserva"
         verbose_name_plural = "Solicitudes de Reserva"
 
-    def __str__(self): # <--- También INDENTADA
+    def __str__(self): 
         return f"Solicitud de {self.nombre_completo} para {self.oferta.titulo}"

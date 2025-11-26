@@ -6,7 +6,6 @@ from .forms import ReservaInquiryForm
 from .models import Oferta, Pais, Categoria, ReservaInquiry
 
 
-# Portada
 class IndexView(TemplateView):
     template_name = 'appTravel/index.html'
 
@@ -22,7 +21,6 @@ class IndexView(TemplateView):
         return context
 
 
-# Listas
 class OfertaListView(ListView):
     model = Oferta
     template_name = 'appTravel/lista_ofertas.html'
@@ -41,7 +39,6 @@ class CategoriaListView(ListView):
     context_object_name = 'categorias'
 
 
-# Detalles
 class OfertaDetailView(DetailView):
     model = Oferta
     template_name = 'appTravel/detalle_oferta.html'

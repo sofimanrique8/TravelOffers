@@ -1,4 +1,20 @@
+{% extends 'appTravel/base.html' %}
 {% load static %}
+
+{% block titulo %}{{ oferta.titulo }} - Travel Offers{% endblock %}
+
+{% block contenido %}
+
+{% if request.session.success_message %}
+<section class="pt-5">
+  <div class="container">
+    <div class="alert alert-success mt-4 mb-0" role="alert">
+      {{ request.session.success_message }}
+    </div>
+  </div>
+</section>
+{% endif %}
+<section style="padding-top: 7rem;">
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 

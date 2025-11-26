@@ -1,5 +1,9 @@
-from django.views.generic import TemplateView, ListView, DetailView
-from .models import Oferta, Pais, Categoria
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
+
+from .forms import ReservaInquiryForm
+from .models import Oferta, Pais, Categoria, ReservaInquiry
 
 
 # Portada
@@ -68,3 +72,26 @@ class CategoriaDetailView(DetailView):
         context['ofertas'] = self.object.oferta_set.all()
         return context
 
+class ReservaCreateView(CreateView):
+    model = ReservaInquiry
+    form_class = ReservaInquiryForm
+    template_name = 'appTravel/reserva_form.html'
+    pk_url_kwarg = 'oferta_id'
+
+    def get_success_url(self):
+        return reverse_lazy('detalle_oferta', kwargs={'oferta_id': self.object.oferta.id})
+
+    def form_valid(self, form):
+        oferta = get_object_or_404(Oferta, pk=self.kwargs['oferta_id'])
+        form.instance.oferta = oferta
+
+        response = super().form_valid(form)
+
+        self.request.session['success_message'] = '¡Tu solicitud de reserva ha sido enviada con éxito! Te contactaremos pronto.'
+        return response
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['oferta'] = get_object_or_404(Oferta, pk=self.kwargs['oferta_id'])
+        return context
+    

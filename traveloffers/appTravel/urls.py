@@ -7,6 +7,7 @@ from .views import (
     PaisDetailView,
     CategoriaListView,
     CategoriaDetailView,
+    ReservaCreateView,
 )
 
 urlpatterns = [

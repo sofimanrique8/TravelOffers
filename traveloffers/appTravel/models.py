@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models # type: ignore
 
 class Pais(models.Model):
     nombre = models.CharField(max_length=100)
@@ -39,3 +39,21 @@ class Imagen(models.Model):
     class Meta:
         verbose_name_plural = "Imagenes"
     def __str__(self): return self.titulo or f"Imagen {self.pk}"
+
+class ReservaInquiry(models.Model): # <--- NO DEBE ESTAR INDENTADA
+    # Esta línea DEBE estar INDENTADA con 4 espacios
+    oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE, related_name='inquiries', verbose_name="Oferta") 
+    nombre_completo = models.CharField(max_length=150)
+    email = models.EmailField()
+    telefono = models.CharField(max_length=20, blank=True, null=True)
+    fecha_viaje_preferida = models.DateField()
+    numero_personas = models.PositiveIntegerField(default=1)
+    comentarios = models.TextField(blank=True, null=True)
+    fecha_solicitud = models.DateTimeField(auto_now_add=True)
+
+    class Meta: # <--- También INDENTADA
+        verbose_name = "Solicitud de Reserva"
+        verbose_name_plural = "Solicitudes de Reserva"
+
+    def __str__(self): # <--- También INDENTADA
+        return f"Solicitud de {self.nombre_completo} para {self.oferta.titulo}"

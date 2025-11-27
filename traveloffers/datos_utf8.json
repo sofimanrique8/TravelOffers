@@ -98,7 +98,7 @@
     "precio": "480.00",
     "pais": 2,
     "fecha_publicacion": "2025-11-04",
-    "imagen": "imagenes/RomaClasica.jpg",
+    "imagen": "https://picsum.photos/seed/roma/400/250",
     "categorias": [
       3,
       5
@@ -114,7 +114,7 @@
     "precio": "620.00",
     "pais": 1,
     "fecha_publicacion": "2025-11-04",
-    "imagen": "imagenes/NorteEnCoche.jpg",
+    "imagen": "https://picsum.photos/seed/bilbao/400/250",
     "categorias": [
       2,
       5
@@ -130,7 +130,7 @@
     "precio": "580.00",
     "pais": 1,
     "fecha_publicacion": "2025-11-05",
-    "imagen": "imagenes/AndaluciaEnCoche.jpeg",
+    "imagen": "https://picsum.photos/seed/andalucia/400/250",
     "categorias": [
       3,
       4,
@@ -147,7 +147,7 @@
     "precio": "1250.00",
     "pais": 3,
     "fecha_publicacion": "2025-11-05",
-    "imagen": "imagenes/JaponTradicionalModerno.jpg",
+    "imagen": "https://picsum.photos/seed/japon/400/250",
     "categorias": [
       2,
       3,
@@ -164,7 +164,7 @@
     "precio": "890.00",
     "pais": 4,
     "fecha_publicacion": "2025-11-05",
-    "imagen": "imagenes/4672c4711426e53_sFxGuWf.jpeg",
+    "imagen": "https://picsum.photos/seed/mexico/400/250",
     "categorias": [
       2,
       3,
@@ -181,7 +181,7 @@
     "precio": "960.00",
     "pais": 5,
     "fecha_publicacion": "2025-11-05",
-    "imagen": "imagenes/ParaisoTailandia.jpg",
+    "imagen": "https://picsum.photos/seed/tailandia/400/250",
     "categorias": [
       1,
       2,
@@ -199,7 +199,7 @@
     "precio": "1680.00",
     "pais": 2,
     "fecha_publicacion": "2025-11-05",
-    "imagen": "imagenes/dest1_BuDGrZD.jpg",
+    "imagen": "https://picsum.photos/seed/amalfi/400/250",
     "categorias": [
       2,
       3,
@@ -217,7 +217,7 @@
     "precio": "610.00",
     "pais": 1,
     "fecha_publicacion": "2025-11-05",
-    "imagen": "imagenes/EncantosCantabria.jpg",
+    "imagen": "https://picsum.photos/seed/cantabria/400/250",
     "categorias": [
       3,
       4,
@@ -234,7 +234,7 @@
     "precio": "870.00",
     "pais": 4,
     "fecha_publicacion": "2025-11-05",
-    "imagen": "imagenes/4672c4711426e53_sFxGuWf.jpeg",
+    "imagen": "https://picsum.photos/seed/maya/400/250",
     "categorias": [
       1,
       2,

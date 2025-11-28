@@ -1,327 +1,327 @@
 [
-{
-  "model": "appTravel.pais",
-  "pk": 1,
-  "fields": {
-    "nombre": "España",
-    "descripcion": "Destino mediterráneo famoso por su gastronomía, cultura y playas soleadas.",
-    "icono": "iconos_paises/323365_sMWU93N.png"
+  {
+    "model": "appTravel.pais",
+    "pk": 1,
+    "fields": {
+      "nombre": "España",
+      "descripcion": "Destino mediterráneo famoso por su gastronomía, cultura y playas soleadas.",
+      "icono": "iconos_paises/323365_sMWU93N.png"
+    }
+  },
+  {
+    "model": "appTravel.pais",
+    "pk": 2,
+    "fields": {
+      "nombre": "Italia",
+      "descripcion": "Tierra de arte, historia, moda y deliciosa comida.",
+      "icono": "iconos_paises/depositphotos_13488452-stock-illustration-italy-flag-on-button_4v4pMgK.jpg"
+    }
+  },
+  {
+    "model": "appTravel.pais",
+    "pk": 3,
+    "fields": {
+      "nombre": "Japón",
+      "descripcion": "Tradición milenaria y tecnología de vanguardia.",
+      "icono": "iconos_paises/japan-flat-rounded-flag-with-transparent-background-free-png_92Oeh8Z.webp"
+    }
+  },
+  {
+    "model": "appTravel.pais",
+    "pk": 4,
+    "fields": {
+      "nombre": "México",
+      "descripcion": "País lleno de historia, playas y sabor latino.",
+      "icono": "iconos_paises/circle-flag-of-mexico-free-png_lurRQ4P.webp"
+    }
+  },
+  {
+    "model": "appTravel.pais",
+    "pk": 5,
+    "fields": {
+      "nombre": "Tailandia",
+      "descripcion": "Exótico destino asiático de templos, playas y naturaleza tropical.",
+      "icono": "iconos_paises/197452_iCZA9wG.png"
+    }
+  },
+  {
+    "model": "appTravel.categoria",
+    "pk": 1,
+    "fields": {
+      "nombre": "Playa",
+      "descripcion": "Disfruta del sol, el mar y la arena.",
+      "icono": "iconos_categorias/3175199.png"
+    }
+  },
+  {
+    "model": "appTravel.categoria",
+    "pk": 2,
+    "fields": {
+      "nombre": "Aventura",
+      "descripcion": "Excursiones, deportes extremos y naturaleza salvaje.",
+      "icono": "iconos_categorias/5044792.png"
+    }
+  },
+  {
+    "model": "appTravel.categoria",
+    "pk": 3,
+    "fields": {
+      "nombre": "Cultura",
+      "descripcion": "Arte, historia y patrimonio en cada destino.",
+      "icono": "iconos_categorias/5778440.png"
+    }
+  },
+  {
+    "model": "appTravel.categoria",
+    "pk": 4,
+    "fields": {
+      "nombre": "Relax",
+      "descripcion": "Hoteles con spa, termas y entornos tranquilos.",
+      "icono": "iconos_categorias/8124623.png"
+    }
+  },
+  {
+    "model": "appTravel.categoria",
+    "pk": 5,
+    "fields": {
+      "nombre": "Gastronomía",
+      "descripcion": "Descubre sabores locales y experiencias culinarias únicas.",
+      "icono": "iconos_categorias/8509322.png"
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 1,
+    "fields": {
+      "titulo": "Roma Clásica",
+      "descripcion": "Tour de 5 días por Roma, el Coliseo y el Vaticano.",
+      "precio": "480.00",
+      "pais": 2,
+      "fecha_publicacion": "2025-11-04",
+      "imagen": "https://picsum.photos/seed/roma/400/250",
+      "categorias": [
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 2,
+    "fields": {
+      "titulo": "Norte de España en coche",
+      "descripcion": "Ruta gastronómica por San Sebastián y Bilbao.",
+      "precio": "620.00",
+      "pais": 1,
+      "fecha_publicacion": "2025-11-04",
+      "imagen": "https://picsum.photos/seed/bilbao/400/250",
+      "categorias": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 3,
+    "fields": {
+      "titulo": "Ruta por Andalucía en coche",
+      "descripcion": "Descubre Granada, Sevilla y Córdoba con paradas en pueblos blancos y tapas inolvidables.",
+      "precio": "580.00",
+      "pais": 1,
+      "fecha_publicacion": "2025-11-05",
+      "imagen": "https://picsum.photos/seed/andalucia/400/250",
+      "categorias": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 4,
+    "fields": {
+      "titulo": "Japón Tradicional y Moderno",
+      "descripcion": "De Kioto a Tokio: templos antiguos, sushi auténtico y tecnología futurista.",
+      "precio": "1250.00",
+      "pais": 3,
+      "fecha_publicacion": "2025-11-05",
+      "imagen": "https://picsum.photos/seed/japon/400/250",
+      "categorias": [
+        2,
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 5,
+    "fields": {
+      "titulo": "Sabores de México",
+      "descripcion": "Ruta gastronómica por Ciudad de México, Puebla y Oaxaca. Un viaje lleno de color y tradición.",
+      "precio": "890.00",
+      "pais": 4,
+      "fecha_publicacion": "2025-11-05",
+      "imagen": "imagenes/4672c4711426e53_sFxGuWf.jpeg",
+      "categorias": [
+        2,
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 6,
+    "fields": {
+      "titulo": "Paraíso en Tailandia",
+      "descripcion": "De Bangkok a las playas de Krabi. Templos dorados, naturaleza exótica y relax total.",
+      "precio": "960.00",
+      "pais": 5,
+      "fecha_publicacion": "2025-11-05",
+      "imagen": "https://picsum.photos/seed/tailandia/400/250",
+      "categorias": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 7,
+    "fields": {
+      "titulo": "Ruta por la Costa Amalfitana",
+      "descripcion": "Conduce entre acantilados, limoneros y pueblos color pastel. Incluye paradas en Nápoles, Amalfi y Positano.",
+      "precio": "1680.00",
+      "pais": 2,
+      "fecha_publicacion": "2025-11-05",
+      "imagen": "https://picsum.photos/seed/amalfi/400/250",
+      "categorias": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 8,
+    "fields": {
+      "titulo": "Encantos de Cantabria",
+      "descripcion": "Disfruta de los paisajes verdes del norte, visita Santander, Comillas y las cuevas de Altamira en un viaje lleno de naturaleza y sabor.",
+      "precio": "610.00",
+      "pais": 1,
+      "fecha_publicacion": "2025-11-05",
+      "imagen": "https://picsum.photos/seed/cantabria/400/250",
+      "categorias": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appTravel.oferta",
+    "pk": 9,
+    "fields": {
+      "titulo": "Aventura Maya",
+      "descripcion": "Explora las ruinas de Chichén Itzá, nada en cenotes y descubre la magia de Tulum y Valladolid.",
+      "precio": "870.00",
+      "pais": 4,
+      "fecha_publicacion": "2025-11-05",
+      "imagen": "imagenes/SaboresMexico_mjH2EoB.webp",
+      "categorias": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 1,
+    "fields": {
+      "titulo": "Ruta por la Costa Amalfitana",
+      "imagen": "imagenes/dest1.jpg",
+      "oferta": 7
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 3,
+    "fields": {
+      "titulo": "Aventura Maya",
+      "imagen": "imagenes/SaboresMexico_mjH2EoB.webp",
+      "oferta": 9
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 5,
+    "fields": {
+      "titulo": "Norte de España en coche",
+      "imagen": "imagenes/NorteEnCoche.jpg",
+      "oferta": 2
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 6,
+    "fields": {
+      "titulo": "Ruta por Andalucía en coche",
+      "imagen": "imagenes/AndaluciaEnCoche.jpeg",
+      "oferta": 3
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 7,
+    "fields": {
+      "titulo": "Paraíso en Tailandia",
+      "imagen": "imagenes/ParaisoTailandia.jpg",
+      "oferta": 6
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 8,
+    "fields": {
+      "titulo": "Japón Tradicional y Moderno",
+      "imagen": "imagenes/JaponTradicionalModerno.jpg",
+      "oferta": 4
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 9,
+    "fields": {
+      "titulo": "Roma Clásica",
+      "imagen": "imagenes/RomaClasica.jpg",
+      "oferta": 1
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 10,
+    "fields": {
+      "titulo": "Encantos de Cantabria",
+      "imagen": "imagenes/EncantosCantabria.jpg",
+      "oferta": 8
+    }
+  },
+  {
+    "model": "appTravel.imagen",
+    "pk": 11,
+    "fields": {
+      "titulo": "Sabores de México",
+      "imagen": "imagenes/4672c4711426e53_sFxGuWf.jpeg",
+      "oferta": 5
+    }
   }
-},
-{
-  "model": "appTravel.pais",
-  "pk": 2,
-  "fields": {
-    "nombre": "Italia",
-    "descripcion": "Tierra de arte, historia, moda y deliciosa comida.",
-    "icono": "iconos_paises/depositphotos_13488452-stock-illustration-italy-flag-on-button_4v4pMgK.jpg"
-  }
-},
-{
-  "model": "appTravel.pais",
-  "pk": 3,
-  "fields": {
-    "nombre": "Japón",
-    "descripcion": "Tradición milenaria y tecnología de vanguardia.",
-    "icono": "iconos_paises/japan-flat-rounded-flag-with-transparent-background-free-png_92Oeh8Z.webp"
-  }
-},
-{
-  "model": "appTravel.pais",
-  "pk": 4,
-  "fields": {
-    "nombre": "México",
-    "descripcion": "País lleno de historia, playas y sabor latino.",
-    "icono": "iconos_paises/circle-flag-of-mexico-free-png_lurRQ4P.webp"
-  }
-},
-{
-  "model": "appTravel.pais",
-  "pk": 5,
-  "fields": {
-    "nombre": "Tailandia",
-    "descripcion": "Exótico destino asiático de templos, playas y naturaleza tropical.",
-    "icono": "iconos_paises/197452_iCZA9wG.png"
-  }
-},
-{
-  "model": "appTravel.categoria",
-  "pk": 1,
-  "fields": {
-    "nombre": "Playa",
-    "descripcion": "Disfruta del sol, el mar y la arena.",
-    "icono": "iconos_categorias/3175199.png"
-  }
-},
-{
-  "model": "appTravel.categoria",
-  "pk": 2,
-  "fields": {
-    "nombre": "Aventura",
-    "descripcion": "Excursiones, deportes extremos y naturaleza salvaje.",
-    "icono": "iconos_categorias/5044792.png"
-  }
-},
-{
-  "model": "appTravel.categoria",
-  "pk": 3,
-  "fields": {
-    "nombre": "Cultura",
-    "descripcion": "Arte, historia y patrimonio en cada destino.",
-    "icono": "iconos_categorias/5778440.png"
-  }
-},
-{
-  "model": "appTravel.categoria",
-  "pk": 4,
-  "fields": {
-    "nombre": "Relax",
-    "descripcion": "Hoteles con spa, termas y entornos tranquilos.",
-    "icono": "iconos_categorias/8124623.png"
-  }
-},
-{
-  "model": "appTravel.categoria",
-  "pk": 5,
-  "fields": {
-    "nombre": "Gastronomía",
-    "descripcion": "Descubre sabores locales y experiencias culinarias únicas.",
-    "icono": "iconos_categorias/8509322.png"
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 1,
-  "fields": {
-    "titulo": "Roma Clásica",
-    "descripcion": "Tour de 5 días por Roma, el Coliseo y el Vaticano.",
-    "precio": "480.00",
-    "pais": 2,
-    "fecha_publicacion": "2025-11-04",
-    "imagen": "https://picsum.photos/seed/roma/400/250",
-    "categorias": [
-      3,
-      5
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 2,
-  "fields": {
-    "titulo": "Norte de España en coche",
-    "descripcion": "Ruta gastronómica por San Sebastián y Bilbao.",
-    "precio": "620.00",
-    "pais": 1,
-    "fecha_publicacion": "2025-11-04",
-    "imagen": "https://picsum.photos/seed/bilbao/400/250",
-    "categorias": [
-      2,
-      5
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 3,
-  "fields": {
-    "titulo": "Ruta por Andalucía en coche",
-    "descripcion": "Descubre Granada, Sevilla y Córdoba con paradas en pueblos blancos y tapas inolvidables.",
-    "precio": "580.00",
-    "pais": 1,
-    "fecha_publicacion": "2025-11-05",
-    "imagen": "https://picsum.photos/seed/andalucia/400/250",
-    "categorias": [
-      3,
-      4,
-      5
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 4,
-  "fields": {
-    "titulo": "Japón Tradicional y Moderno",
-    "descripcion": "De Kioto a Tokio: templos antiguos, sushi auténtico y tecnología futurista.",
-    "precio": "1250.00",
-    "pais": 3,
-    "fecha_publicacion": "2025-11-05",
-    "imagen": "https://picsum.photos/seed/japon/400/250",
-    "categorias": [
-      2,
-      3,
-      5
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 5,
-  "fields": {
-    "titulo": "Sabores de México",
-    "descripcion": "Ruta gastronómica por Ciudad de México, Puebla y Oaxaca. Un viaje lleno de color y tradición.",
-    "precio": "890.00",
-    "pais": 4,
-    "fecha_publicacion": "2025-11-05",
-    "imagen": "https://picsum.photos/seed/mexico/400/250",
-    "categorias": [
-      2,
-      3,
-      5
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 6,
-  "fields": {
-    "titulo": "Paraíso en Tailandia",
-    "descripcion": "De Bangkok a las playas de Krabi. Templos dorados, naturaleza exótica y relax total.",
-    "precio": "960.00",
-    "pais": 5,
-    "fecha_publicacion": "2025-11-05",
-    "imagen": "https://picsum.photos/seed/tailandia/400/250",
-    "categorias": [
-      1,
-      2,
-      3,
-      4
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 7,
-  "fields": {
-    "titulo": "Ruta por la Costa Amalfitana",
-    "descripcion": "Conduce entre acantilados, limoneros y pueblos color pastel. Incluye paradas en Nápoles, Amalfi y Positano.",
-    "precio": "1680.00",
-    "pais": 2,
-    "fecha_publicacion": "2025-11-05",
-    "imagen": "https://picsum.photos/seed/amalfi/400/250",
-    "categorias": [
-      2,
-      3,
-      4,
-      5
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 8,
-  "fields": {
-    "titulo": "Encantos de Cantabria",
-    "descripcion": "Disfruta de los paisajes verdes del norte, visita Santander, Comillas y las cuevas de Altamira en un viaje lleno de naturaleza y sabor.",
-    "precio": "610.00",
-    "pais": 1,
-    "fecha_publicacion": "2025-11-05",
-    "imagen": "https://picsum.photos/seed/cantabria/400/250",
-    "categorias": [
-      3,
-      4,
-      5
-    ]
-  }
-},
-{
-  "model": "appTravel.oferta",
-  "pk": 9,
-  "fields": {
-    "titulo": "Aventura Maya",
-    "descripcion": "Explora las ruinas de Chichén Itzá, nada en cenotes y descubre la magia de Tulum y Valladolid.",
-    "precio": "870.00",
-    "pais": 4,
-    "fecha_publicacion": "2025-11-05",
-    "imagen": "https://picsum.photos/seed/maya/400/250",
-    "categorias": [
-      1,
-      2,
-      3,
-      4
-    ]
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 1,
-  "fields": {
-    "titulo": "Ruta por la Costa Amalfitana",
-    "imagen": "imagenes/dest1.jpg",
-    "oferta": 7
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 3,
-  "fields": {
-    "titulo": "Aventura Maya",
-    "imagen": "imagenes/4672c4711426e53_sFxGuWf.jpeg",
-    "oferta": 9
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 5,
-  "fields": {
-    "titulo": "Norte de España en coche",
-    "imagen": "imagenes/NorteEnCoche.jpg",
-    "oferta": 2
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 6,
-  "fields": {
-    "titulo": "Ruta por Andalucía en coche",
-    "imagen": "imagenes/AndaluciaEnCoche.jpeg",
-    "oferta": 3
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 7,
-  "fields": {
-    "titulo": "Paraíso en Tailandia",
-    "imagen": "imagenes/ParaisoTailandia.jpg",
-    "oferta": 6
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 8,
-  "fields": {
-    "titulo": "Japón Tradicional y Moderno",
-    "imagen": "imagenes/JaponTradicionalModerno.jpg",
-    "oferta": 4
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 9,
-  "fields": {
-    "titulo": "Roma Clásica",
-    "imagen": "imagenes/RomaClasica.jpg",
-    "oferta": 1
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 10,
-  "fields": {
-    "titulo": "Encantos de Cantabria",
-    "imagen": "imagenes/EncantosCantabria.jpg",
-    "oferta": 8
-  }
-},
-{
-  "model": "appTravel.imagen",
-  "pk": 11,
-  "fields": {
-    "titulo": "Sabores de México",
-    "imagen": "imagenes/SaboresMexico_mjH2EoB.webp",
-    "oferta": 5
-  }
-}
 ]
